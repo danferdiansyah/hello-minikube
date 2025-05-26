@@ -1,7 +1,12 @@
+<div align="center">
+
 ## Reflection on Hello Minikube
 
-Daniel Ferdiansyah, 2306275052
+**Daniel Ferdiansyah, 2306275052**
 
+</div>
+
+---
 
 1. Comparation before and after exposed the minikube as a Service
 
