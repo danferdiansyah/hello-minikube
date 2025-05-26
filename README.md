@@ -7,8 +7,7 @@
 </div>
 
 ---
-
-1. Comparation before and after exposed the minikube as a Service
+1. **Comparation before and after exposed the minikube as a Service**
 
     **Sebelum di-expose sebagai Service**:
     
@@ -31,3 +30,14 @@
     I0526 08:35:59.472832       1 log.go:195] GET /
     I0526 08:35:59.562443       1 log.go:195] GET /
     ```
+
+2. **Purpose of `n`**
+
+      `n` atau `--namespace` pada command `kubectl` digunakan untuk menentukan namespace di mana perintah tersebut akan dieksekusi pada sumber daya yang akan dicari atau dimanipulasi.
+      
+      Ketika kamu menjalankan perintah seperti kubectl get deployments atau kubectl get pods tanpa opsi -n (seperti pada langkah melihat deployment hello-node ), kubectl secara default menargetkan namespace default. Pod hello-node yang kamu buat juga berada di namespace default karena tidak ada namespace lain yang ditentukan saat pembuatan.
+      
+      Namespace kube-system adalah tempat di mana komponen-komponen inti dan add-on dari sistem Kubernetes itu sendiri berjalan. Contohnya adalah DNS cluster (seperti CoreDNS), proxy jaringan, dan dalam tutorial ini, metrics-server.
+      
+      Jadi, ketika menjalankan `kubectl get pods -n kube-system` atau `kubectl get services -n kube-system`, sistem meminta daftar pod atau service yang ada khusus di dalam namespace kube-system.
+      Outputnya tidak mencantumkan pod (hello-node-xxxxx) atau service (hello-node) yang dibuat secara eksplisit karena pod dan service tersebut berada di namespace default, bukan kube-system dan setiap namespace memiliki lingkup sumber dayanya sendiri.
