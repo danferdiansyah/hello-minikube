@@ -78,7 +78,7 @@
 
 4. **What do you think are the benefits of using Kubernetes manifest files?**
    
-Dengan manifest file, saya bisa simpan konfigurasi dari deployment yang telah dibuat dan menggunakannya ulang ke depannya. Hal ini saya pikir semacam *save game* untuk minikube.
+      Dengan manifest file, saya bisa simpan konfigurasi dari deployment yang telah dibuat dan menggunakannya ulang ke depannya. Hal ini saya pikir semacam *save game* untuk minikube.
  
 
 
