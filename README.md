@@ -41,3 +41,44 @@
       
       Jadi, ketika menjalankan `kubectl get pods -n kube-system` atau `kubectl get services -n kube-system`, sistem meminta daftar pod atau service yang ada khusus di dalam namespace kube-system.
       Outputnya tidak mencantumkan pod (hello-node-xxxxx) atau service (hello-node) yang dibuat secara eksplisit karena pod dan service tersebut berada di namespace default, bukan kube-system dan setiap namespace memiliki lingkup sumber dayanya sendiri.
+
+---
+
+<div align="center">
+   
+## Reflection on Rolling Update and Kubernetes Manifest File
+   
+</div>
+
+1. **What is the difference between Rolling Update and Recreate deployment strategy?**
+
+      Rolling update merupakan approach untuk memperbarui aplikasi secara bertahap dengan mengganti satu per satu pod lama dengan pod baru, sehingga service tetap berjalan ketika proses berlangsung. Sedangkan, Recreate merupakan strategi untuk menghentikan semua pod lama, lalu launch pod baru, sehingga ada downtime Dengan recreate deployment strategy, dipastikan hanya ada satu versi aplikasi yang aktif dalam satu waktu.
+
+2. **Try deploying the Spring Petclinic REST using Recreate deployment strategy and document your attempt. reset dan start**
+
+      Start minikube dan buat deployment
+      ![image](https://github.com/user-attachments/assets/8b5972c4-c98a-4e78-9d17-331217ee24bc)
+      
+      Verify deployment dan pods ready
+      ![image](https://github.com/user-attachments/assets/82716ab7-f621-4284-b6a8-120515b12abe)
+      ![image](https://github.com/user-attachments/assets/a999d6c4-d515-4a6d-995f-97f7c60ca3c9)
+      
+      Expose deployment dan get services
+      ![image](https://github.com/user-attachments/assets/3f0de85f-cb4e-4884-957d-7b5579c96472)
+      
+      Jalankan aplikasi
+      ![Screenshot 2025-05-30 194910](https://github.com/user-attachments/assets/ca4b5aba-760e-477b-9557-5d5f7b14ec8c)
+
+      Scale menjadi 4 replicas dan pastikan semuanya running
+      ![image](https://github.com/user-attachments/assets/b7dfacee-5ea4-4e36-b306-79ec15295454)
+
+
+3. **Prepare different manifest files for Executing Recreate Deployment Strategy**
+      ![image](https://github.com/user-attachments/assets/97792708-0539-47c0-8d22-440b265d726a)
+
+4. **What do you think are the benefits of using Kubernetes manifest files?**
+   
+Dengan manifest file, saya bisa simpan konfigurasi dari deployment yang telah dibuat dan menggunakannya ulang ke depannya. Hal ini saya pikir semacam *save game* untuk minikube.
+ 
+
+
